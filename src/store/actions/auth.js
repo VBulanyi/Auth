@@ -14,18 +14,22 @@ export function auth(username, password) {
 
         const expiresIn = 3600000
 
-        const response = await axios.post(url, authData)
+        try {
+            const response = await axios.post(url, authData)
+            const data = response.data
+            const expirationDate = new Date(new Date().getTime() + expiresIn)
 
-        const data = response.data
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('userId', data.localId)
+            localStorage.setItem('expirationDate', expirationDate)
 
-        const expirationDate = new Date(new Date().getTime() + expiresIn)
+            dispatch(authSuccess(data.token))
+            dispatch(autoLogout(expiresIn))
 
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('userId', data.localId)
-        localStorage.setItem('expirationDate', expirationDate)
-
-        dispatch(authSuccess(data.token))
-        dispatch(autoLogout(expiresIn))
+        } catch (error) {
+            console.log(error)
+            alert('Не верное имя пользователя или пароль')
+        }
     }
 }
 

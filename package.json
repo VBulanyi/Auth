@@ -2,7 +2,7 @@
   "name": "auth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://vbulanyi.github.io/auth",
+  "homepage": "https://vbulanyi.github.io/Auth/",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "^0.18.0",
@@ -39,7 +39,7 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "resolve": "1.6.0",
